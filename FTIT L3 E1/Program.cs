@@ -1,4 +1,4 @@
-﻿namespace exercitiu
+﻿/*namespace exercitiu
 {
     class Program
     {
@@ -17,6 +17,19 @@
             Console.WriteLine(sumOfDigits(53));
         }
     }
-}
+}*/
 
 //Scrieti o functie care va calcula suma cifrelor unui numar.
+
+static int sumOfDigits(int num)
+{
+    int sum = 0;
+    while (num != 0)
+    {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+Console.WriteLine(sumOfDigits(15));
