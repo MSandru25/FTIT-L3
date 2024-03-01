@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿/*using System.ComponentModel;
 
 namespace exercitiu
 {
@@ -75,13 +75,134 @@ namespace exercitiu
             { Console.WriteLine(i); }
         }
     }
+}*/
+
+
+using System.Runtime.CompilerServices;
+
+Console.Write("Cate elemente are vectorul ? ");
+int n = int.Parse(Console.ReadLine());
+int[] array = readArray(n);
+Console.WriteLine($"Cel mai mare numar din vector este: {maxNum(array)}");
+Console.WriteLine($"Cel mai mic numar din vector este: {minNum(array)}");
+divThree(array);
+isSquare(array);
+listPrime(array);
+
+
+
+static int[] readArray(int n)
+{
+    int[] array = new int[n];
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"Elementul {i + 1}: ");
+        array[i] = int.Parse(Console.ReadLine());
+    }
+    return array;
 }
 
+static int maxNum(int[] arr)
+{
+    int hiNum = arr[0];
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] > hiNum)
+            hiNum = arr[i];
+    }
+    return hiNum;
+}
+
+static int minNum(int[] arr)
+{
+    int loNum = arr[0];
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] < loNum)
+            loNum = arr[i];
+    }
+    return loNum;
+
+}
+
+static void divThree(int[] arr)
+{
+    List<int> divThreeList = new List<int>();
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] % 3 == 0)
+        {
+            divThreeList.Add(arr[i]);
+        }
+
+    }
+    Console.WriteLine("Numerele divizibile cu 3 din vector sunt: ");
+    foreach (int i in divThreeList)
+    {
+        Console.WriteLine(i);
+    }
+    return;
+}
+
+static void isSquare(int[] arr)
+{
+    List<int> sqList = new List<int>();
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (Math.Sqrt(arr[i]) % 1 == 0)
+        {
+            sqList.Add(arr[i]);
+        }
+
+    }
+    Console.WriteLine("Patratele perfecte din vector sunt: ");
+    foreach (int i in sqList)
+    {
+        Console.WriteLine(i);
+    }
+    return;
+}
+
+static bool isPrime(int num)
+{
+    int i;
+    for (i = 2; i <= num - 1; i++)
+    {
+        if (num % i == 0)
+        {
+            return false;
+        }
+    }
+    if (i == num)
+    {
+        return true;
+    }
+    return false;
+}
+
+static void listPrime(int[] arr)
+{
+    List<int> primeList = new List<int>();
+    for (int i = 0 ; i < arr.Length ; i++)
+    {
+        if (isPrime(arr[i]))
+            primeList.Add(arr[i]);
+    }
+    Console.WriteLine("Numerele prime din vector sunt: ");
+    foreach (int i in primeList)
+    {
+        Console.WriteLine(i);
+    }
+}
 
 
 /*Se citeste de la tastatura un vector continant n numere intregi, n fiind si el citit la randul sau citit de la tastatura. Scrieti functii care vor returna
 • Cel mai mare numar din vector
 • Cel mai mic numar din vector
 • Numerele divizibile cu 3
-• Numerele prime din vector /TODO
+• Numerele prime din vector
+• Numerele patrate perfecte din vector
+(Asa era cand m-am apucat de exercitiu)
 */
