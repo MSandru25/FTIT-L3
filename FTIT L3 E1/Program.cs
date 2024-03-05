@@ -21,7 +21,7 @@
 
 //Scrieti o functie care va calcula suma cifrelor unui numar.
 
-static int sumOfDigits(int num)
+static int SumOfDigits(int num)
 {
     int sum = 0;
     while (num != 0)
@@ -32,4 +32,4 @@ static int sumOfDigits(int num)
     return sum;
 }
 
-Console.WriteLine(sumOfDigits(15));
+Console.WriteLine(SumOfDigits(15));

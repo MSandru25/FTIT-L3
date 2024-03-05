@@ -83,11 +83,31 @@ using System.Runtime.CompilerServices;
 Console.Write("Cate elemente are vectorul ? ");
 int n = int.Parse(Console.ReadLine());
 int[] array = readArray(n);
-Console.WriteLine($"Cel mai mare numar din vector este: {maxNum(array)}");
-Console.WriteLine($"Cel mai mic numar din vector este: {minNum(array)}");
-divThree(array);
-isSquare(array);
-listPrime(array);
+Console.WriteLine($"Cel mai mare numar din vector este: {MaxNum(array)}");
+Console.WriteLine($"Cel mai mic numar din vector este: {MinNum(array)}");
+//DivThree(array);
+//IsSquare(array);
+//ListPrime(array);
+Console.WriteLine("Numerele divizibile cu 3 din vector sunt: ");
+foreach (int i in array)
+{
+    if (DivThree(i))
+    { Console.WriteLine(i); }
+}
+Console.WriteLine("Patratele perfecte din vector sunt: ");
+foreach (int i in array)
+{
+    if (IsSquare(i))
+    { Console.WriteLine(i); }
+}
+
+Console.WriteLine("Numerele prime din vector sunt: ");
+foreach(int i in array)
+{
+    if (IsPrime(i))
+    { Console.WriteLine(i); }
+}
+
 
 
 
@@ -102,7 +122,7 @@ static int[] readArray(int n)
     return array;
 }
 
-static int maxNum(int[] arr)
+static int MaxNum(int[] arr)
 {
     int hiNum = arr[0];
     for (int i = 1; i < arr.Length; i++)
@@ -113,7 +133,7 @@ static int maxNum(int[] arr)
     return hiNum;
 }
 
-static int minNum(int[] arr)
+static int MinNum(int[] arr)
 {
     int loNum = arr[0];
     for (int i = 1; i < arr.Length; i++)
@@ -125,7 +145,7 @@ static int minNum(int[] arr)
 
 }
 
-static void divThree(int[] arr)
+/*static void DivThree(int[] arr)
 {
     List<int> divThreeList = new List<int>();
 
@@ -143,9 +163,9 @@ static void divThree(int[] arr)
         Console.WriteLine(i);
     }
     return;
-}
+}*/
 
-static void isSquare(int[] arr)
+/*static void IsSquare(int[] arr)
 {
     List<int> sqList = new List<int>();
 
@@ -163,9 +183,9 @@ static void isSquare(int[] arr)
         Console.WriteLine(i);
     }
     return;
-}
+}*/
 
-static bool isPrime(int num)
+static bool IsPrime(int num)
 {
     int i;
     for (i = 2; i <= num - 1; i++)
@@ -182,21 +202,34 @@ static bool isPrime(int num)
     return false;
 }
 
-static void listPrime(int[] arr)
+/*static void ListPrime(int[] arr)
 {
     List<int> primeList = new List<int>();
     for (int i = 0 ; i < arr.Length ; i++)
     {
-        if (isPrime(arr[i]))
-            primeList.Add(arr[i]);
+        if (IsPrime(arr[i]))
+        { primeList.Add(arr[i]); }
     }
     Console.WriteLine("Numerele prime din vector sunt: ");
     foreach (int i in primeList)
     {
         Console.WriteLine(i);
     }
+}*/
+
+static bool DivThree(int num)
+{
+    if (num % 3 == 0)
+    { return true; }
+    return false;
 }
 
+static bool IsSquare(int num)
+{
+    if (Math.Sqrt(num) % 1 == 0)
+    { return true; }
+    return false;
+} 
 
 /*Se citeste de la tastatura un vector continant n numere intregi, n fiind si el citit la randul sau citit de la tastatura. Scrieti functii care vor returna
 • Cel mai mare numar din vector

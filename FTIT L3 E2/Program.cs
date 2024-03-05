@@ -35,16 +35,14 @@ static bool PrimeOrNot(int num)
     { return true; }
     else
     {
-        for (int i = 2; i <= num; i++)
+        for (int i = 2; i <= num - 1; i++)
         {
             if (num % i == 0)
-                return false;
-            else if (num % i != 0)
-                return true;
+            { return false; }
 
         }
     }
-    return false;
+    return true;
 }
 
 Console.WriteLine(PrimeOrNot(3));
