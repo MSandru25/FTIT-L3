@@ -6,9 +6,16 @@
 Console.Write("Cate elemente are vectorul ? ");
 int n = int.Parse(Console.ReadLine());
 int[] array = readArray(n);
-Array.Reverse(array);
+//Array.Reverse(array);
+int[] reversedArray = new int[array.Length];
+int j = 0;
+for (int i = array.Length - 1; i >= 0; i--)
+{
+    reversedArray[j] = array[i];
+    j++;
+}
 Console.WriteLine("Vectorul inversat este: ");
-showArray(array);
+showArray(reversedArray);
 static int[] readArray(int n)
 {
     int[] array = new int[n];
